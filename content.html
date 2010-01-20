@@ -1,0 +1,70 @@
+{% extends "admin.html" %}
+        
+{% block content %}
+<div>
+template: Bonjour les [adjectif pluriel] [animaux (pluriel)] [lieu (singulier)] [adjectif singulier]
+</div>
+<table>
+ <tr><th>adjectif pluriel</th><th></th></tr>
+ {% for adj in adjectf_pls %}
+  <tr><td>{{ adj.name }}</td><td><a href="/admin/managecontent/del_adj_pl?remove={{ adj.name }}">enlever</a></td></tr>
+ {% endfor %}
+ <tr>
+<form action="/admin/managecontent/add_adj_pl" method="post">
+ <td>
+      <input name="content" type="text"/>
+</td><td>
+      <input type="submit" value="ajouter">
+</td>
+    </form>
+</tr>
+</table>
+
+<table>
+ <tr><th>animaux</th><th></th></tr>
+ {% for animal in animals %}
+  <tr><td>{{ animal.name }}</td><td><a href="/admin/managecontent/del_animal?remove={{ animal.name }}">enlever</a></td></tr>
+ {% endfor %}
+ <tr>
+<form action="/admin/managecontent/add_animal" method="post">
+ <td>
+      <input name="content" type="text"/>
+</td><td>
+      <input type="submit" value="ajouter">
+</td>
+    </form>
+</tr>
+</table>
+
+<table>
+ <tr><th>lieux</th><th></th></tr>
+ {% for lieu in lieux %}
+  <tr><td>{{ lieu.name }}</td><td><a href="/admin/managecontent/del_lieu?remove={{ lieu.name }}">enlever</a></td></tr>
+ {% endfor %}
+<tr>
+<form action="/admin/managecontent/add_lieu" method="post">
+ <td>
+      <input name="content" type="text"/>
+</td><td>
+      <input type="submit" value="ajouter">
+</td>
+    </form>
+</tr>
+</table>
+
+<table>
+ <tr><th>adjectif singulier</th><th></th></tr>
+ {% for adj in adjectf_sgs %}
+  <tr><td>{{ adj.name }}</td><td><a href="/admin/managecontent/del_adj_sg?remove={{ adj.name }}">enlever</a></td></tr>
+ {% endfor %}
+ <tr>
+<form action="/admin/managecontent/add_adj_sg" method="post">
+ <td>
+      <input name="content" type="text"/>
+</td><td>
+      <input type="submit" value="ajouter">
+</td>
+    </form>
+</tr>
+</table>
+{% endblock %}

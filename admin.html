@@ -1,0 +1,17 @@
+{% extends "index.html" %}
+
+{% block sidebar %}
+    <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/admin/sendmail/">envoyer un mail</a></li>
+        <li><a href="/admin/managemaillist/">g&eacute;rer mailing list</a></li>
+        <li><a href="/admin/managecontent/">g&eacute;rer le contenu gener&eacute;</a></li>
+        <li><a href="{{ url_log }}">{{ url_log_linktext }}</a></li>
+    </ul>
+{% endblock %}
+        
+{% block content %}
+<div>
+     choisir une action ci-dessus
+</div>
+{% endblock %}

@@ -1,0 +1,10 @@
+{% extends "index.html" %}
+
+{% block content %}
+    <table>
+     <tr><th>date</th><th>lieu</th></tr>
+     {% for archive in archives %}
+      <tr><td>{{ archive.date }}</td><td>{{ archive.lieu }}</td></tr>
+     {% endfor %}
+    </table>
+{% endblock %}

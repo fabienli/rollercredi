@@ -1,0 +1,28 @@
+{% extends "index.html" %}
+
+{% block content %}
+<div> vote en cours pour la prochaine sortie roller:</div>
+<div>{{ msg }}</div>
+    <table>
+     <tr><th>nom</th><th>lieu choisi</th><th>date du vote (GMT)</th></tr>
+     {% for vote in votes %}
+      <tr><td>{{ vote.name }}</td><td>{{ vote.lieu }}</td><td>{{ vote.date }}</td></tr>
+     {% endfor %}
+      <tr>
+        <form action="/vote/add" method="post">
+         <td>
+              <input name="name" type="text"/>
+         </td>
+         <td>
+              <select name="lieu">
+              <option id="Cagnes" value="Cagnes-sur-mer">Cagnes-sur-mer</option>
+              <option id="Nice" value="Nice">Nice</option>
+              </select>
+         </td>
+         <td>
+              <input type="submit" value="ajouter">
+         </td>
+        </form>
+      </tr>
+     </table>
+{% endblock %}

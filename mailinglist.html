@@ -1,0 +1,23 @@
+{% extends "admin.html" %}
+        
+{% block content %}
+<div>
+</div>
+<h1>Mailing List:</h1>
+<table>
+ <tr><th>email</th><th></th></tr>
+ {% for email in emails %}
+  <tr><td>{{ email.email }}</td><td><a href="/admin/managemaillist/remove?remove={{ email.email }}">enlever</a></td></tr>
+ {% endfor %}
+ <tr>
+<form action="/admin/managemaillist/add" method="post">
+ <td>
+      <input name="email" type="text"/>
+</td><td>
+      <input type="submit" value="ajouter">
+</td>
+    </form>
+</tr>
+</table>
+
+{% endblock %}
